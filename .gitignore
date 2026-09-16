@@ -1,0 +1,81 @@
+# ==============================================================================
+# 1. Python Artifacts & Bytecode
+# ==============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Packaging and Build Directories
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Python Virtual Environments
+venv/
+env/
+.venv/
+ENV/
+
+
+# ==============================================================================
+# 2. Environment, Credentials & Local Secrets
+# ==============================================================================
+.env
+.env.local
+.env.*.local
+*.env
+secrets.py
+config.py
+
+# Ensure example environment template is always tracked
+!.env.example
+!backend/.env.example
+
+
+# ==============================================================================
+# 3. Editor / IDE & Operating System Files
+# ==============================================================================
+# Editors & IDEs
+.vscode/
+.idea/
+*.swp
+*~
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+
+# ==============================================================================
+# 4. Logs, Testing & Runtime Cache
+# ==============================================================================
+*.log
+instance/
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+
+# ==============================================================================
+# 5. Vendored & Legacy Files (Removed pywebview Desktop App)
+# ==============================================================================
+# Entire vendored third-party desktop wrapper
+webview/
+
+# Legacy binary and library files from desktop builds
+*.dll
+*.pyd
+*.exe
+*.jar
+
+
+# ==============================================================================
+# 6. Frontend Build Artifacts (Future Bundling & Tooling)
+# ==============================================================================
+node_modules/
+frontend/static/dist/
+frontend/build/

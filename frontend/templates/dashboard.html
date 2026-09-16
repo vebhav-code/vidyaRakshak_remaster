@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vidya Rakshak UI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <div class="glass-card w-full max-w-7xl h-[90vh] max-h-[850px] rounded-[2.5rem] shadow-2xl flex">
+
+        <!-- Left Panel -->
+        <div class="left-panel-glass w-full max-w-xs h-full rounded-l-[2.5rem] p-6 flex flex-col">
+            <div class="flex items-center space-x-3 bg-white/10 p-2.5 rounded-lg mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+                <input type="text" id="searchInput" placeholder="search" class="bg-transparent text-white placeholder-gray-300 w-full outline-none border-none text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </div>
+
+            <nav class="flex-grow overflow-y-auto">
+                <ul id="topicList" class="space-y-2 text-white">
+                    <a href="#SSC"><li id="topic-0">Sustainable Smart Park.</li></a>
+                    <a href="#LMO"><li id="topic-1">Learn Meaning Of Ozone.</li></a>
+                    <a href="#WMT"><li id="topic-2">What Mean Trees To Us.</li></a>
+                    <a href="#DTC"><li>Dare To Clean Air.</li></a>
+                    <a href="#SMWTU"><li>Soil Mean What To Us.</li></a>
+                    <a href="#EMS"><li>Energy Means Soil,Air,Land.</li></a>
+                    <a href="#CS"><li>Control Smoke.</li></a>
+                    <a href="#NTTW"><li>Throw Nothing In Water.</li></a>
+                    <a href="#DBIBA"><li>Do Burn It's Burn Air.</li></a>
+                    <a href="#Wmw"><li>Waring Means Waming.</li></a>
+                    <a href="#LIHC"><li>Let's learm Clean.</li></a>
+                    <a href="#OUIOH"><li>Whole Universe Is Our Home.</li></a>
+                    <a href="#NWMTU"><li>Nature What Mean To Us.</li></a>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Right Content -->
+        <div class="flex-grow flex flex-col p-6 pl-8">
+            
+            <!-- Header -->
+            <header class="flex-shrink-0 flex items-center justify-between text-white mb-6">
+                <div class="flex items-center justify-start">
+                    <img src="/static/logo.png" alt="Vidya Rakshak Logo" class="h-10 w-25 mr-4">
+                    <h1 class="text-2xl sm:text-3xl font-bold text-white tracking-wide">Vidya Rakshak</h1>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                   
+
+                    <div class="flex items-center space-x-2">
+                        <button class="header-box flex items-center justify-center h-6 w-6 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
+                        </button>
+                        <div class="header-box flex items-center px-3 h-6 rounded-full">
+                            <span class="text-white font-semibold text-sm">Activity 1/10</span>
+                        </div>
+                    </div>
+
+                    <div class="header-box flex items-center space-x-1 px-2 h-6 rounded-full">
+                        <img src="/static/no bg coin.png" alt="Coin" class="h-full w-auto">
+                        <span class="text-white font-semibold text-sm">125</span>
+                    </div>
+                    
+                    <div class="relative">
+                        <button id="userMenuBtn" class="flex items-center space-x-2">
+                            <span id="userLogo" class="user-logo w-8 h-8 flex items-center justify-center rounded-full bg-gray-600 overflow-hidden">
+                                <img src="/static/user.png" alt="Logo" class="w-full h-full object-cover">
+                            </span>
+                            <span id="userName" class="text-white text-sm font-semibold"> {{ first_name }}</span>
+                        </button>
+                        <div id="userDropdown" class="user-dropdown absolute top-full right-0 mt-2 w-48 rounded-md shadow-lg bg-gray-800/80 backdrop-blur-md -webkit-backdrop-blur-md ring-1 ring-white ring-opacity-10 z-20 hidden">
+                            <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+                                <a href="{{ url_for('logout') }}" id="logoutBtn" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white" role="menuitem">Log Out</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Slider Section -->
+            <main class="flex-grow flex items-center justify-center relative">
+                <div id="slider" class="relative w-full h-full">
+                    <div class="slider-frame-glass w-full h-full rounded-3xl p-4 flex items-center justify-center">
+                        <div class="relative w-full h-full rounded-2xl overflow-hidden shadow-lg"></div>
+                    </div>
+
+                    <button id="prevBtn" class="slider-nav absolute top-1/2 -left-1 transform -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center text-white transition-transform hover:scale-110 active:scale-95 z-10">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+
+                    <button id="nextBtn" class="slider-nav absolute top-1/2 -right-1 transform -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center text-white transition-transform hover:scale-110 active:scale-95 z-10">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+
+                    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center space-y-3">
+                        <div class="pagination-pill rounded-full px-4 py-2 flex items-center justify-center space-x-4" id="pagination-dots"></div>
+                        <button class="jump-into-btn rounded-full px-20 py-3 text-white font-semibold text-sm tracking-wider">
+                            JUMP INTO
+                        </button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Search Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            const topicList = document.getElementById('topicList');
+            const topics = topicList.getElementsByTagName('li');
+
+            searchInput.addEventListener('input', (event) => {
+                const searchValue = event.target.value.toLowerCase();
+                for (let i = 0; i < topics.length; i++) {
+                    const topicText = topics[i].textContent.toLowerCase();
+                    topics[i].style.display = topicText.includes(searchValue) ? 'block' : 'none';
+                }
+            });
+        });
+    </script>
+    
+    <!-- Slider Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const imageContainer = document.querySelector('#slider .relative.w-full.h-full');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const paginationDotsContainer = document.getElementById('pagination-dots');
+            const jumpIntoBtn = document.querySelector('.jump-into-btn');
+            const topicList = document.getElementById('topicList');
+
+            const images = ['/static/Screen1.png','/static/Screen2.png','/static/Screen3.png','/static/Screen4.png'];
+            
+            const jumpUrls = ['https://decentraland.org/play/?realm=juek396.dcl.eth','','',''];
+
+            let currentIndex = 0;
+
+            function renderSlider() {
+                imageContainer.innerHTML = '';
+                paginationDotsContainer.innerHTML = '';
+
+                images.forEach((src, index) => {
+                    const img = document.createElement('img');
+                    img.src = src;
+                    img.alt = `Slider Image ${index + 1}`;
+                    img.className = `absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out ${index === currentIndex ? 'opacity-100' : 'opacity-0'}`;
+                    imageContainer.appendChild(img);
+                });
+
+                images.forEach((_, index) => {
+                    const dot = document.createElement('div');
+                    dot.className = `w-2 h-2 rounded-full cursor-pointer transition-all duration-300 ${index === currentIndex ? 'bg-white' : 'bg-white/40'}`;
+                    dot.addEventListener('click', () => {
+                        currentIndex = index;
+                        renderSlider();
+                    });
+                    paginationDotsContainer.appendChild(dot);
+                });
+            }
+
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % images.length;
+                renderSlider();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + images.length) % images.length;
+                renderSlider();
+            });
+
+            topicList.addEventListener('click', (event) => {
+                const clickedListItem = event.target.closest('li');
+                if (clickedListItem) {
+                    const topicId = clickedListItem.id;
+                    if (topicId === 'topic-0') currentIndex = 0;
+                    else if (topicId === 'topic-1') currentIndex = 1;
+                    else if (topicId === 'topic-2') currentIndex = 2;
+                    renderSlider();
+                }
+            });
+
+            jumpIntoBtn.addEventListener('click', () => {
+                window.location.href = jumpUrls[currentIndex];
+            });
+
+            renderSlider();
+
+            const userMenuBtn = document.getElementById('userMenuBtn');
+            const userDropdown = document.getElementById('userDropdown');
+
+            userMenuBtn.addEventListener('click', () => {
+                userDropdown.classList.toggle('hidden');
+            });
+
+            document.addEventListener('click', (event) => {
+                if (!userMenuBtn.contains(event.target) && !userDropdown.contains(event.target)) {
+                    userDropdown.classList.add('hidden');
+                }
+            });
+
+            // ✅ Static button functionality
+            document.getElementById('staticBtn').addEventListener('click', () => {
+                window.location.href = "static.html";
+            });
+        });
+    </script>
+
+</body>
+</html>

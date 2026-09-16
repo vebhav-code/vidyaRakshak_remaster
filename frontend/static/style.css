@@ -1,0 +1,152 @@
+/* Custom styles for the page */
+body {
+    font-family: 'Inter', sans-serif;
+    background-image: url('upscale.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+/* Sunbeam effect */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(255, 255, 220, 0.3) 0%, rgba(255, 255, 255, 0) 60%);
+    pointer-events: none;
+}
+
+/* Glass containers */
+.glass-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.left-panel-glass {
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.slider-frame-glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Slider navigation */
+.slider-nav {
+    background: linear-gradient(45deg, #2ecc71, #27ae60); /* Green gradient */
+    border: 1px solid #27ae60;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease-in-out;
+}
+
+.slider-nav:hover {
+    background: linear-gradient(45deg, #27ae60, #2ecc71);
+    transform: scale(1.1);
+}
+
+/* Pagination + Jump */
+.pagination-pill {
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.jump-into-btn {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.85), rgba(139, 92, 246, 0.85), rgba(236, 72, 153, 0.85)); /* More opaque gradient */
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 2.5rem;
+    border-radius: 9999px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Slight white border for glass effect */
+    transition: all 0.3s ease-in-out;
+}
+
+.jump-into-btn:hover {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 1), rgba(139, 92, 246, 1), rgba(236, 72, 153, 1)); /* Full opacity on hover */
+    transform: scale(1.03);
+}
+
+.jump-into-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.5);
+}
+
+
+
+/* Sidebar Navigation */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    background-color: transparent;
+    color: white;
+    display: block;
+    padding: 10px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+nav ul li:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    padding-left: 20px;
+}
+
+/* Hide scrollbar but allow scrolling */
+nav {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+nav::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari, and Opera */
+}
+
+/* User Profile specific styles */
+.user-logo {
+    background-color: #3B82F6; /* blue-500 from Tailwind CSS */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 9999px; /* rounded-full from Tailwind CSS */
+}
+
+.user-dropdown {
+    background: rgba(31, 41, 55, 0.8); /* gray-800 with transparency */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-dropdown a {
+    color: #D1D5DB; /* gray-300 from Tailwind CSS */
+}
+
+.user-dropdown a:hover {
+    background-color: #4B5563; /* gray-700 from Tailwind CSS */
+    color: white;
+}
